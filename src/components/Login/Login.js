@@ -60,7 +60,7 @@ const Login = () => {
     return (
         <div className="text-center">
             <div className="my-5">
-                <a class="navbar-brand" href="#"><img src={logo} alt="" style={{ height: '50px' }} /></a>
+                <a class="navbar-brand" href="/"><img src={logo} alt="" style={{ height: '50px' }} /></a>
             </div>
             {/* <div className="row" style={{ height: 500, width: 500, border: '1px solid black', margin: 'auto' }}> */}
             <div className="login-form">

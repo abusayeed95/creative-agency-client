@@ -29,7 +29,7 @@ const Reviews = () => {
     ]
 
     return (
-        <section className=" my-5">
+        <section style={{ margin: 200 }}>
 
             <div className="container">
                 <div>

@@ -2,3 +2,19 @@
   font-family: 'Poppins', sans-serif;
   
 }
+
+.customFormStyle{
+  margin-top: 100px;
+  margin-left: 50px;
+  width: 500px;
+}
+
+.btnSubmit{
+  background: #111430;
+  color: white;
+}
+
+.btnUploadFile{
+  background: #DEFFED;
+  color: #009444;
+}
