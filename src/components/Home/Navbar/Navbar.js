@@ -1,7 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import logo from '../../../images/logos/logo.png';
 
 const Navbar = () => {
+
+    const history = useHistory();
+
+    function handleClick() {
+        history.push('/login');
+    }
+
     return (
         <div className="col-md-10 offset-md-1">
             <nav class="navbar navbar-expand-lg navbar-light pt-3">
@@ -25,7 +33,7 @@ const Navbar = () => {
                             <a class="nav-link mr-5" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <button className="btn btn-dark">Login</button>
+                            <button onClick={handleClick} className="btn btn-dark">Login</button>
                         </li>
                     </ul>
                 </div>
