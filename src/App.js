@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +10,8 @@ import Home from './components/Home/Home/Home';
 
 const App = () => {
   return (
-    <Router>
+    <div className="app">
+      <Router>
       <Switch>
 
         <Route path="/home" >
@@ -25,6 +27,7 @@ const App = () => {
 
       </Switch>
     </Router>
+    </div>
   );
 };
 
