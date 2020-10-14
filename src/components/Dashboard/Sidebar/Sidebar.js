@@ -27,7 +27,7 @@ const Sidebar = () => {
         <div className="sidebar d-flex flex-column justify-content-between" style={{ height: "100vh" }}>
 
             <ul className="list-unstyled">
-                <a class="navbar-brand m-4 mt-5 " href="/dashboard"><img src={logo} alt="" style={{ height: '50px' }} /></a>
+                <a className="navbar-brand m-4 mt-5 " href="/dashboard"><img src={logo} alt="" style={{ height: '50px' }} /></a>
 
                 <li>
                     <Link to="/orderForm" >

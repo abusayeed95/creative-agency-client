@@ -14,6 +14,11 @@
   color: white;
 }
 
+.btnSubmit:hover{
+  background: coral;
+  color: white;
+}
+
 .btnUploadFile{
   background: #DEFFED;
   color: #009444;

@@ -11,6 +11,7 @@ const OrderForm = () => {
         data.date = date;
         data.created = new Date(); */
 
+        // insert order info to database
         fetch('http://localhost:5000/addOrder', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },

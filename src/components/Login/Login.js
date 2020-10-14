@@ -14,6 +14,9 @@ const Login = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
+/* const userInfo = loggedInUser;
+console.log('logged In User info', userInfo); */
+
     const history = useHistory()
     const location = useLocation()
     let { from } = location.state || { from: { pathname: "/" } }
@@ -34,11 +37,11 @@ const Login = () => {
 
         //Authenticate with Firebase using the Google provider object.
         firebase.auth().signInWithPopup(googleLoginProvider).then(function (result) {
-            const { displayName, email } = result.user;
-            const signedInUser = { name: displayName, email }
+            const { displayName, email, photoURL } = result.user;
+            const signedInUser = { name: displayName, email, photoURL }
             setLoggedInUser(signedInUser);
             storeAuthToken();
-
+            
         }).catch(function (error) {
             // Handle Errors here.
             const errorMessage = error.message;
@@ -60,7 +63,7 @@ const Login = () => {
     return (
         <div className="text-center">
             <div className="my-5">
-                <a class="navbar-brand" href="/"><img src={logo} alt="" style={{ height: '50px' }} /></a>
+                <a className="navbar-brand" href="/"><img src={logo} alt="" style={{ height: '50px' }} /></a>
             </div>
             {/* <div className="row" style={{ height: 500, width: 500, border: '1px solid black', margin: 'auto' }}> */}
             <div className="login-form">

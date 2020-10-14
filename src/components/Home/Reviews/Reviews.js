@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Review from '../Review/Review';
 
 const Reviews = () => {
 
-    const review = [
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+
+   /*  const review = [
         {
             id: 0,
             image: 'https://i.imgur.com/cKgoI6L.png',
@@ -26,7 +34,7 @@ const Reviews = () => {
             review: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores laborum incidunt nihil id, rem explicabo maiores repudiandae?"
         }
 
-    ]
+    ] */
 
     return (
         <section style={{ margin: 200 }}>
@@ -38,7 +46,7 @@ const Reviews = () => {
 
                 <div className="card-deck mt-5">
                     {
-                        review.map(reviewData => <Review reviewData={reviewData} key={reviewData.id}></Review>)
+                        reviews.map(reviewData => <Review reviewData={reviewData} key={reviewData._id}></Review>)
                     }
                 </div>
             </div>

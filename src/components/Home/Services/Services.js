@@ -19,7 +19,8 @@ const servicesData = [
         image: 'https://i.imgur.com/5yUhUZQ.png',
         title: 'Web development',
         description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.',
-    },
+    }
+
 
 
 ]
@@ -34,6 +35,7 @@ const Services = () => {
                     servicesData.map(allServices => <AllServices allServices={allServices} key={allServices.id}></AllServices>)
                 }
             </div>
+
         </div>
     );
 };
