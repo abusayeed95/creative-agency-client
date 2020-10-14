@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import AllOrder from '../../ManageOrder/AllOrder/AllOrder';
 import Admin from '../Admin/Admin';
 
 
 
-const fakeData = [
+/* const fakeData = [
     {
         id: 0,
         image: 'https://i.imgur.com/7G4sl1N.png',
@@ -22,23 +23,46 @@ const fakeData = [
         title: 'Web development',
         description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.',
     }
-]
+] */
 
 
 const OrderHistory = () => {
 
-    /* const [order, setOrder] = useState([])
+    const [order, setOrder] = useState([])
 
     useEffect(() => {
         fetch('https://fierce-cliffs-21804.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => setOrder(data))
-    }, []) */
+    }, [])
 
     return (
 
-        <div>
-            <h1>Order List</h1>
+        <div style={{ height: '100vh', background: '#F4F7FC' }} className="p-5">
+            <div>
+                <h1>Order List</h1>
+            </div>
+
+            <div>
+                <table className="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email ID</th>
+                            <th scope="col">Service</th>
+                            <th scope="col">Project Details</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div>
+                {
+                    order.map(data => <AllOrder data={data}></AllOrder>)
+                }
+            </div>
+
+
         </div>
 
     );
