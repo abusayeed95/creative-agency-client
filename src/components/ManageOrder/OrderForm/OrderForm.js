@@ -12,7 +12,7 @@ const OrderForm = () => {
         data.created = new Date(); */
 
         // insert order info to database
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://fierce-cliffs-21804.herokuapp.com/addOrder', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

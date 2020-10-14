@@ -3,17 +3,17 @@ import { UserContext } from '../../../App';
 
 const Review = ({ reviewData }) => {
     // console.log('review Data api', reviewData);
-    const { image, name, company, description } = reviewData;
+    const { userPhoto, name, company, description } = reviewData;
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const userInfo = loggedInUser;
-    console.log('logged In User info', userInfo);
+    // console.log('logged In User info', userInfo);
 
     return (
         <div className="card">
             <div className="mt-3 d-flex  align-items-center">
-                <img className="mx-3" src={image} alt="" width="60" />
+                <img className="mx-3 rounded-circle" src={userPhoto} alt="" width="60" />
                 <div>
                     <h6>{name}</h6>
                     <p className="m-0">{company}</p>

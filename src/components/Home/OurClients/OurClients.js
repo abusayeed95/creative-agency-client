@@ -7,8 +7,8 @@ import airbnb from '../../../images/logos/airbnb.png';
 
 const OurClients = () => {
     return (
-        <section className="container my-5 text-center">
-            <div>
+        <section className="container text-center">
+            <div className="my-5">
                 <img src={slack} alt="" style={{ height: '40px' }} className="ml-5" />
                 <img src={google} alt="" style={{ height: '40px' }} className="ml-5" />
                 <img src={uber} alt="" style={{ height: '40px' }} className="ml-5" />
