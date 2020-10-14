@@ -6,7 +6,7 @@ import Sidebar from '../Dashboard/Sidebar/Sidebar';
 const PostReview = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log('logged In User info', loggedInUser);
+    // console.log('logged In User info', loggedInUser);
 
     const { name, email, photoURL } = loggedInUser;
 

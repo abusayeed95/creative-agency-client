@@ -7,7 +7,6 @@ const AllServices = ({ allServices }) => {
 
     const { _id, image, title, description } = allServices;
 
-
     return (
         <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
                 <div className="card services-card my-5" style={{ height: 250 }}>

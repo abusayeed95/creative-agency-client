@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
+import OrderHistory from '../OrderHistory/OrderHistory';
 
-const Admin = () => {
+const Admin = ({ fakeinfo }) => {
+
+    console.log('admin page');
+
+    console.log('fakedata', fakeinfo);
+
     return (
         <div className="row">
 
             <Sidebar></Sidebar>
 
-
             <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
 
-
                 <h2 className="pt-5 ml-5" >Review</h2>
+                {/* <OrderHistory></OrderHistory> */}
 
                 <div className="p-5">
                     <div className="bg-white p-5">
@@ -33,26 +38,12 @@ const Admin = () => {
                                     <td>@mdo</td>
                                     <td><button className="btn btn-danger">Delete</button></td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td><button className="btn btn-danger">Delete</button></td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colSpan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                    <td><button className="btn btn-danger">Delete</button></td>
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };
