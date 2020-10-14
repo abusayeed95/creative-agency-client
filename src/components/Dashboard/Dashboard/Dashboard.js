@@ -7,16 +7,15 @@ const Dashboard = () => {
 
 
     return (
-        <div className="row">
-            {/* <div className="col-md-4 col-sm-6 col-12">
-                <Sidebar></Sidebar>
-            </div> */}
+        <section>
 
-            <div className="col-md-2 col-sm-6 col-12">
-                <OrderForm></OrderForm>
+            <div className="row">
+                <div className="col-md-2">
+                    <Sidebar></Sidebar>
+                </div>
             </div>
 
-        </div>
+        </section>
     );
 };
 

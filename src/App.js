@@ -12,6 +12,10 @@ import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import OrderForm from './components/ManageOrder/OrderForm/OrderForm';
 import PostReview from './components/PostReview/PostReview';
+import ServiceList from './components/ManageOrder/ServiceList/ServiceList';
+import Admin from './components/Admin/Admin/Admin';
+import AddService from './components/Admin/AddService/AddService';
+import MakeAdmin from './components/Admin/MakeAdmin/MakeAdmin';
 
 export const UserContext = createContext();
 
@@ -41,8 +45,24 @@ const App = () => {
               <OrderForm></OrderForm>
             </Route>
 
+            <Route path="/serviceList" >
+              <ServiceList></ServiceList>
+            </Route>
+
             <Route path="/postReview" >
               <PostReview></PostReview>
+            </Route>
+
+            <Route path="/admin" >
+              <Admin></Admin>
+            </Route>
+
+            <Route path="/addService" >
+              <AddService></AddService>
+            </Route>
+
+            <Route path="/makeAdmin" >
+              <MakeAdmin></MakeAdmin>
             </Route>
 
             <PrivateRoute path="/dashboard" >

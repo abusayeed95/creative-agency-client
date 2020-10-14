@@ -7,7 +7,7 @@ const Navbar = () => {
     const history = useHistory();
 
     function handleClick() {
-        history.push('/login');
+        history.push('/dashboard');
     }
 
     return (
