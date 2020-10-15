@@ -10,6 +10,10 @@ const Navbar = () => {
         history.push('/dashboard');
     }
 
+    function comingSoon() {
+        alert('This feature is coming Coming Soon!!')
+    }
+
     return (
         <div className="col-md-10 offset-md-1">
             <nav className="navbar navbar-expand-lg navbar-light pt-3">
@@ -18,19 +22,19 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse font-weight-bold" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
                             <a className="nav-link mr-5" href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link mr-5" href="#">Our Portfolio</a>
+                            <a className="nav-link mr-5" onClick={comingSoon} href="#">Our Portfolio</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link mr-5" href="#">Our Team</a>
+                            <a className="nav-link mr-5" onClick={comingSoon} href="#">Our Team</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link mr-5" href="#">Contact Us</a>
+                            <a className="nav-link mr-5" href="#contactUs">Contact Us</a>
                         </li>
                         <li className="nav-item">
                             <button onClick={handleClick} className="btn btn-dark">Login</button>

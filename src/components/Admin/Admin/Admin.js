@@ -11,16 +11,13 @@ const Admin = ({ fakeinfo }) => {
     return (
         <div className="row">
 
-            <div className="col-md-2">
+            <div>
                 <Sidebar></Sidebar>
             </div>
 
-            <div className="">
+            <div>
                 <OrderHistory></OrderHistory>
             </div>
-
-
-
         </div>
     );
 };

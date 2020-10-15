@@ -11,9 +11,14 @@ const PostReview = () => {
     const { name, email, photoURL } = loggedInUser;
 
 
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm({
+        defaultValues: {
+            name: name
+        }
+    });
 
     const onSubmit = data => {
+        // sending user gmail profile image to database as userPhoto
         data.userPhoto = photoURL;
 
         console.log('gmail data', data);
@@ -41,9 +46,9 @@ const PostReview = () => {
             <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
 
 
-                <div className="pt-5 ml-5">
+                <div className="pt-5 ml-5 d-flex justify-content-between">
                     <h1 >Review</h1>
-                    <h3>Welcome, {name}</h3>
+                    <h3 className="mr-5">{name}</h3>
                 </div>
 
                 <form className="customFormStyle" onSubmit={handleSubmit(onSubmit)}>
@@ -51,12 +56,12 @@ const PostReview = () => {
                     {/* <img src={photoURL} alt="" ref={register({ required: true })} name="photoURL" /> */}
 
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="name" className="form-control form-control-lg" placeholder="Your name" />
+                        <input type="text" ref={register({ required: true })} name="name" className="form-control form-control-lg" maxlength="20" placeholder="Your name" /* value={name} */ />
                         {errors.name && <span className="text-danger">This field is required</span>}
                     </div>
 
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="company" className="form-control form-control-lg" placeholder="Company’s name, Designation" />
+                        <input type="text" ref={register({ required: true })} name="company" className="form-control form-control-lg" maxlength="25" placeholder="Company’s name, Designation" />
                         {errors.company && <span className="text-danger">This field is required</span>}
                     </div>
 

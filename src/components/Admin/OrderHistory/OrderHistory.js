@@ -40,7 +40,7 @@ const OrderHistory = () => {
 
         <div style={{ height: '100vh', background: '#F4F7FC' }} className="p-5">
             <div>
-                <h1>Order List</h1>
+                <h1>Services list</h1>
             </div>
 
             <div>
