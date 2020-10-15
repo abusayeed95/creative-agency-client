@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faSignOutAlt, faCommentDots, faPlus, faUserPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
 import { UserContext } from '../../../App';
-
 import logo from '../../../images/logos/logo.png';
 
 
@@ -23,6 +21,7 @@ const Sidebar = () => {
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, [])
+
 
     return (
         <div className="sidebar d-flex flex-column justify-content-between" style={{ height: "100vh" }}>

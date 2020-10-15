@@ -2,13 +2,10 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../../App';
 
 const Review = ({ reviewData }) => {
-    // console.log('review Data api', reviewData);
+
     const { userPhoto, name, company, description } = reviewData;
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
-    const userInfo = loggedInUser;
-    // console.log('logged In User info', userInfo);
 
     return (
         <div className="card">

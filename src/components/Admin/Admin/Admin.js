@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import OrderHistory from '../OrderHistory/OrderHistory';
 
-const Admin = ({ fakeinfo }) => {
-
-    console.log('admin page');
-
-    console.log('fakedata', fakeinfo);
+const Admin = () => {
 
     return (
         <div className="row">

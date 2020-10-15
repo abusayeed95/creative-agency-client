@@ -7,9 +7,6 @@ const AllServices = ({ allServices }) => {
 
     const { _id, image, title, description } = allServices;
 
-    // animation start
-    // animation end
-
     return (
 
         <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
@@ -22,6 +19,7 @@ const AllServices = ({ allServices }) => {
 
                     <h3 className="text-dark">{title}</h3>
                     <p className="text-secondary">{description}</p>
+
 
                 </div>
 

@@ -6,10 +6,8 @@ import Sidebar from '../Dashboard/Sidebar/Sidebar';
 const PostReview = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    // console.log('logged In User info', loggedInUser);
 
     const { name, email, photoURL } = loggedInUser;
-
 
     const { register, handleSubmit, errors } = useForm({
         defaultValues: {
@@ -53,8 +51,6 @@ const PostReview = () => {
 
                 <form className="customFormStyle" onSubmit={handleSubmit(onSubmit)}>
 
-                    {/* <img src={photoURL} alt="" ref={register({ required: true })} name="photoURL" /> */}
-
                     <div className="form-group">
                         <input type="text" ref={register({ required: true })} name="name" className="form-control form-control-lg" maxlength="20" placeholder="Your name" /* value={name} */ />
                         {errors.name && <span className="text-danger">This field is required</span>}
@@ -72,8 +68,6 @@ const PostReview = () => {
                     </div>
 
                     <button type="submit" className="btn btnSubmit" >Submit</button>
-
-
 
                 </form>
             </div>

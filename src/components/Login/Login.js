@@ -14,9 +14,6 @@ const Login = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-/* const userInfo = loggedInUser;
-console.log('logged In User info', userInfo); */
-
     const history = useHistory()
     const location = useLocation()
     let { from } = location.state || { from: { pathname: "/" } }
@@ -24,14 +21,11 @@ console.log('logged In User info', userInfo); */
     //Google sign-in provider
     var googleLoginProvider = new firebase.auth.GoogleAuthProvider();
 
-
     const handleGoogleLogin = () => {
-
 
         // Initialize Firebase
         // firebase.initializeApp(firebaseConfig);
         if (firebase.apps.length === 0) {
-            // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
         }
 
@@ -57,28 +51,24 @@ console.log('logged In User info', userInfo); */
                     // Handle error
                 });
         }
-
     }
 
     return (
+
         <div className="text-center">
+
             <div className="my-5">
                 <a className="navbar-brand" href="/"><img src={logo} alt="" style={{ height: '50px' }} /></a>
             </div>
-            {/* <div className="row" style={{ height: 500, width: 500, border: '1px solid black', margin: 'auto' }}> */}
-            <div className="login-form">
 
+            <div className="login-form">
                 <h3>Login with</h3>
                 <button onClick={handleGoogleLogin} className="btn w-75 border my-3">
                     <img src={googleLogo} style={{ height: '30px' }} alt="" /> Continue with Google
                 </button>
                 <p>Don’t have an account? <a href="" onClick={handleGoogleLogin}>Create an account</a></p>
-
-
             </div>
-            {/* </div> */}
-
-
+            
         </div>
     );
 };

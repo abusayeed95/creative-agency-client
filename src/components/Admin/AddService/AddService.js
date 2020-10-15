@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
 const AddService = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    const { name, email, photoURL } = loggedInUser;
 
     const { register, handleSubmit, errors } = useForm();
 
@@ -28,8 +33,10 @@ const AddService = () => {
 
             <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
 
-
-                <h2 className="pt-5 ml-5" >Add Service</h2>
+                <div className="pt-5 ml-5 d-flex justify-content-between">
+                    <h1>Add Service</h1>
+                    <h3 className="mr-5">{name}</h3>
+                </div>
 
                 <form className="customFormStyle" onSubmit={handleSubmit(onSubmit)}>
                     

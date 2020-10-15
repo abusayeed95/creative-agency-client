@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
 const OrderForm = () => {
 
-    const { register, handleSubmit, errors } = useForm();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    const { name, email, photoURL } = loggedInUser;
+
+    const { register, handleSubmit, errors } = useForm({
+        defaultValues: {
+            name: name,
+            email: email
+        }
+    });
 
     const onSubmit = data => {
-        /* data.service = appointmentOn;
-        data.date = date;
-        data.created = new Date(); */
-
+   
         // insert order info to database
         fetch('https://fierce-cliffs-21804.herokuapp.com/addOrder', {
             method: 'POST',
@@ -33,8 +40,10 @@ const OrderForm = () => {
 
             <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
 
-
-                <h2 className="pt-5 ml-5" >Order</h2>
+                <div className="pt-5 ml-5 d-flex justify-content-between">
+                    <h1 >Order</h1>
+                    <h3 className="mr-5">{name}</h3>
+                </div>
 
                 <form className="customFormStyle" onSubmit={handleSubmit(onSubmit)}>
 
@@ -67,7 +76,7 @@ const OrderForm = () => {
                             </div>
                             <div class="col">
                                 <button type="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload project file </button>
-                                <span className="text-warning">*Optional</span>
+                                <span className="text-secondary">*Optional</span>
                             </div>
                         </div>
                     </div>

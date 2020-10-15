@@ -1,30 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AllOrder from '../../ManageOrder/AllOrder/AllOrder';
-import Admin from '../Admin/Admin';
-
-
-
-/* const fakeData = [
-    {
-        id: 0,
-        image: 'https://i.imgur.com/7G4sl1N.png',
-        title: 'Web & Mobile design',
-        description: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.',
-    },
-    {
-        id: 1,
-        image: 'https://i.imgur.com/EkkUahl.png',
-        title: 'Graphic design',
-        description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.',
-    },
-    {
-        id: 2,
-        image: 'https://i.imgur.com/5yUhUZQ.png',
-        title: 'Web development',
-        description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.',
-    }
-] */
-
 
 const OrderHistory = () => {
 
