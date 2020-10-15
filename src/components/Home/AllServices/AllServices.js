@@ -1,21 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AllServices.css';
-
+import { useSpring, animated } from 'react-spring'
 
 const AllServices = ({ allServices }) => {
 
     const { _id, image, title, description } = allServices;
 
+    // animation start
+    // animation end
+
     return (
+
         <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
-                <div className="card services-card my-5" style={{ height: 250 }}>
-                    <div className="card-body">
+
+            <div className="card services-card my-5" style={{ height: 250 }}>
+
+                <div className="card-body">
+
                     <img src={image} alt="No Image" style={{ height: '40px' }} />
-                        <h3 className="text-dark">{title}</h3>
-                        <p className="text-secondary">{description}</p>
-                    </div>
+
+                    <h3 className="text-dark">{title}</h3>
+                    <p className="text-secondary">{description}</p>
+
                 </div>
+
+            </div>
+
         </Link>
 
 

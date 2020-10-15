@@ -20,5 +20,14 @@
 
 .sidebar li{
     margin-bottom: 1em;
-    padding-left: 40px;
+    padding-left: 40px; 
+}
+
+.sideBarlink:hover{
+    color: #009444;
+    text-decoration: none;
+}
+
+.sideBarlink{
+    color: black;
 }

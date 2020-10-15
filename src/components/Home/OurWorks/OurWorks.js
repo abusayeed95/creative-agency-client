@@ -3,6 +3,8 @@ import React from 'react';
 import carousel1 from '../../../images/carousel-1.png';
 import carousel2 from '../../../images/carousel-2.png';
 import carousel3 from '../../../images/carousel-3.png';
+import carousel4 from '../../../images/carousel-4.png';
+import carousel5 from '../../../images/carousel-5.png';
 
 import ReactDOM from 'react-dom';
 import './OurWorks.css'
@@ -26,6 +28,14 @@ const OurWorks = () => {
                 </div>
                 <div className="carousel-inner">
                     <img src={carousel3} />
+                    <p className="legend">UX Design</p>
+                </div>
+                <div className="carousel-inner">
+                    <img src={carousel4} />
+                    <p className="legend">Graphics Design</p>
+                </div>
+                <div className="carousel-inner">
+                    <img src={carousel5} />
                     <p className="legend">UX Design</p>
                 </div>
 

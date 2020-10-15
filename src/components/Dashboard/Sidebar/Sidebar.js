@@ -31,34 +31,34 @@ const Sidebar = () => {
                 <a className="navbar-brand m-4 mt-5 " href="/dashboard"><img src={logo} alt="" style={{ height: '50px' }} /></a>
 
                 <li>
-                    <Link to="/orderForm" >
+                    <Link to="/orderForm" className="sideBarlink">
                         <FontAwesomeIcon icon={faShoppingCart} /> <span>Order</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/serviceList" >
+                    <Link to="/serviceList" className="sideBarlink">
                         <FontAwesomeIcon icon={faList} /> <span>Service List</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="postReview" >
+                    <Link to="postReview" className="sideBarlink">
                         <FontAwesomeIcon icon={faCommentDots} /> <span>Review</span>
                     </Link>
                 </li>
 
                 <div>
                     <li>
-                        <Link to="admin" >
+                        <Link to="admin" className="sideBarlink">
                             <FontAwesomeIcon icon={faList} /> <span>Service List</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="addService" >
+                        <Link to="addService" className="sideBarlink">
                             <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="makeAdmin" >
+                        <Link to="makeAdmin" className="sideBarlink">
                             <FontAwesomeIcon icon={faUserPlus} /> <span>Make Admin</span>
                         </Link>
                     </li>
