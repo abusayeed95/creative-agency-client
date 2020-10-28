@@ -1,7 +1,18 @@
 
 # Creative Agency 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Complete MERN stack website for Graphis Design company who sales different types of services. 
+
+## Key Features
+
+* Customer can place an order, 
+* Cancel the order,
+* Manage order history,
+* Post review about the services.
+
+## Tools and Technologies
+
+
 
 ## Available Scripts
 
