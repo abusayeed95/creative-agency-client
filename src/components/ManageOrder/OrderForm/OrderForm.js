@@ -1,28 +1,37 @@
-import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
 const OrderForm = () => {
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [info, setInfo] = useState({});
+    const [file, setFile] = useState(null);
 
+    const handleBlur = e => {
+        const newInfo = { ...info };
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
+    }
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
 
-    const { register, handleSubmit, errors } = useForm({
-        defaultValues: {
-            name: name,
-            email: email
-        }
-    });
+    const onSubmit = (data) => {
+        data.preventDefault();
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('name', loggedInUser.name);
+        formData.append('email', loggedInUser.email);
+        formData.append('serviceName', info.serviceName);
+        formData.append('details', info.details);
+        formData.append('price', info.price);
 
-    const onSubmit = data => {
-   
+        console.log('user data', data);
+
         // insert order info to database
-        fetch('https://fierce-cliffs-21804.herokuapp.com/addOrder', {
+        fetch('http://localhost:5000/addOrder', {
             method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(data)
+            body: formData
         })
             .then(res => res.json())
             .then(success => {
@@ -30,13 +39,18 @@ const OrderForm = () => {
                     alert('Order has been send successfully.');
                 }
             })
+            .catch(err => console.log(err));
+    }
+
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
     }
 
     return (
         <div className="row">
 
             <Sidebar></Sidebar>
-
 
             <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
 
@@ -45,38 +59,32 @@ const OrderForm = () => {
                     <h3 className="mr-5">{name}</h3>
                 </div>
 
-                <form className="customFormStyle" onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={onSubmit} className="customFormStyle" >
 
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="name" className="form-control form-control-lg" placeholder="Your name / company’s name" />
-                        {errors.name && <span className="text-danger">This field is required</span>}
+                        <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" placeholder="Your name / company’s name" />
                     </div>
 
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="email" className="form-control form-control-lg" placeholder="Your email address" />
-                        {errors.email && <span className="text-danger">This field is required</span>}
+                        <input type="text" onBlur={handleBlur} name="email" className="form-control form-control-lg" placeholder="Your email address" />
+                    </div>
+
+                    <div className="form-group">
+                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" placeholder="Graphic Design" />
 
                     </div>
 
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="serviceName" className="form-control form-control-lg" placeholder="Graphic Design" />
-                        {errors.serviceName && <span className="text-danger">This field is required</span>}
-                    </div>
-
-                    <div className="form-group">
-                        <textarea type="text" ref={register({ required: true })} name="details" className="form-control" cols="30" rows="6" placeholder="Project Details"></textarea>
-                        {errors.details && <span className="text-danger">This field is required</span>}
+                        <textarea type="text" onBlur={handleBlur} name="details" className="form-control" cols="30" rows="6" placeholder="Project Details"></textarea>
                     </div>
 
                     <div className="form-group">
                         <div class="form-row">
                             <div class="col">
-                                <input type="number" ref={register({ required: true })} name="price" className="form-control form-control-lg" placeholder="Price" />
-                                {errors.price && <span className="text-danger">This field is required</span>}
+                                <input type="number" onBlur={handleBlur} name="price" className="form-control form-control-lg" placeholder="Price" />
                             </div>
                             <div class="form-row mt-3">
-                                {/* <button type="file" name="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload project file </button> */}
-                                <input type="file" name="file" className="btn w-100 form-control-lg btnUploadFile" /> Upload project file
+                                <input onChange={handleFileChange} type="file" className="btn w-100 form-control-lg btnUploadFile form-control" /> Upload project file
                                 <span className="text-secondary">*Optional</span>
                             </div>
                         </div>
