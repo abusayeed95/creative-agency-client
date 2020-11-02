@@ -74,8 +74,9 @@ const OrderForm = () => {
                                 <input type="number" ref={register({ required: true })} name="price" className="form-control form-control-lg" placeholder="Price" />
                                 {errors.price && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div class="col">
-                                <button type="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload project file </button>
+                            <div class="form-row mt-3">
+                                {/* <button type="file" name="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload project file </button> */}
+                                <input type="file" name="file" className="btn w-100 form-control-lg btnUploadFile" /> Upload project file
                                 <span className="text-secondary">*Optional</span>
                             </div>
                         </div>

@@ -48,7 +48,7 @@ const Sidebar = () => {
                 <div>
                     <li>
                         <Link to="admin" className="sideBarlink">
-                            <FontAwesomeIcon icon={faList} /> <span>Service List</span>
+                            <FontAwesomeIcon icon={faList} /> <span>Order List</span>
                         </Link>
                     </li>
                     <li>
