@@ -16,12 +16,12 @@ const AllOrder = ({ allOrders }) => {
     ]
 
     useEffect(() => {
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://fierce-cliffs-21804.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => {
-                const da = data.map(d => ({ ...d, status: 'pending' }))
+                const result = data.map(d => ({ ...d, status: 'pending' }))
 
-                setAll(da);
+                setAll(result);
             })
     }, [])
 
@@ -40,12 +40,21 @@ const AllOrder = ({ allOrders }) => {
             })
     }
 
-    const defaultOption = options[0]; 
+    const defaultOption = options[0];
 
     return (
 
         <div>
             <table className="table table-hover bg-white">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Service</th>
+                        <th scope="col">Project Details</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr key={_id}>
                         <th>{name}</th>
@@ -56,6 +65,19 @@ const AllOrder = ({ allOrders }) => {
                             <Dropdown options={options} onChange={(e) => { change(e, `${_id}`) }} value={defaultOption} placeholder="Select an option" />
                         </td>
                     </tr>
+
+                    {/* {
+                        all.map(a =>
+                            <tr key={a._id}>
+                                <th>{a.name}</th>
+                                <td>{a.email}</td>
+                                <td>{a.serviceName}</td>
+                                <td className="col-md-2">{a.details}</td>
+                                <td>
+                                    <Dropdown options={options} onChange={(e) => { change(e, `${a._id}`) }} value={defaultOption} placeholder="Select an option" />
+                                </td>
+                            </tr>)
+                    } */}
                 </tbody>
             </table>
         </div>

@@ -5,13 +5,13 @@ import './AllServices.css';
 const AllServices = ({ allServices }) => {
 
     const { _id, image, title, description } = allServices;
-    console.log(allServices);
+    console.log('allServices props', allServices);
 
     return (
 
         <div className="col-md-4">
             <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
-                <div className="card services-card my-5" style={{ height: 250 }}>
+                <div className="card services-card my-5 border border-dark rounded" style={{ height: 250 }}>
                     <div className="card-body">
                         {/* {
                             allServices.image ? <img style={{ height: '40px' }} src={`data:image/png;base64,${allServices.image.img}`} alt="" />

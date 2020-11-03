@@ -18,7 +18,7 @@ const OrderHistory = () => {
                 <h1>All Order list</h1>
             </div>
 
-            <div>
+            {/* <div>
                 <table className="table table-hover ">
                     <thead>
                         <tr>
@@ -30,7 +30,7 @@ const OrderHistory = () => {
                         </tr>
                     </thead>
                 </table>
-            </div>
+            </div> */}
             <div>
                 {
                     order.map(allOrders => <AllOrder allOrders={allOrders}></AllOrder>)
