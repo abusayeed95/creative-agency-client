@@ -1,21 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
 const AddService = () => {
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [info, setInfo] = useState({});
+    const [file, setFile] = useState(null);
 
+    const handleBlur = e => {
+        const newInfo = { ...info };
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
+    }
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
 
-    const { register, handleSubmit, errors } = useForm();
+    // const { register, handleSubmit, errors } = useForm();
 
-    const onSubmit = data => {
-        fetch('https://fierce-cliffs-21804.herokuapp.com/addService', {
+    const onSubmit = (data) => {
+        data.preventDefault();
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('title', info.title);
+        formData.append('description', info.description);
+
+        console.log('service data', data);
+
+        fetch('http://localhost:5000/addService', {
             method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(data)
+            // headers: { 'content-type': 'application/json' },
+            // body: JSON.stringify(data)
+            body: formData
         })
             .then(res => res.json())
             .then(success => {
@@ -23,6 +41,12 @@ const AddService = () => {
                     alert('Service Added Successfully!')
                 }
             })
+            .catch(err => console.log(err))
+    }
+
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
     }
 
     return (
@@ -38,7 +62,7 @@ const AddService = () => {
                     <h3 className="mr-5">{name}</h3>
                 </div>
 
-                <form className="customFormStyle" onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={onSubmit} className="customFormStyle" >
                     
                     <div className="bg-white p-5" style={{ width: '800px' }}>
 
@@ -46,19 +70,18 @@ const AddService = () => {
                             <div class="form-row">
                                 <div class="col">
                                     <label htmlFor="">Service Title</label>
-                                    <input type="text" ref={register({ required: true })} name="title" className="form-control form-control-lg" placeholder="Enter title" />
-                                    {errors.title && <span className="text-danger">This field is required</span>}
+                                    <input onChange={handleBlur} type="text" name="title" className="form-control form-control-lg" placeholder="Enter title" />
                                 </div>
                                 <div class="col">
-                                    <button type="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload Image </button>
+                                    {/* <input type="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload Image </input> */}
+                                    <input onChange={handleFileChange} type="file" className="btn w-100 form-control-lg btnUploadFile form-control" /> Upload Image
                                 </div>
                             </div>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="">Description</label>
-                            <textarea type="text" ref={register({ required: true })} name="description" className="form-control" cols="30" rows="6" placeholder="Enter Description"></textarea>
-                            {errors.description && <span className="text-danger">This field is required</span>}
+                            <textarea onChange={handleBlur} type="text" name="description" className="form-control" cols="30" rows="6" placeholder="Enter Description"></textarea>
                         </div>
 
                         <div className="row d-flex justify-content-end">

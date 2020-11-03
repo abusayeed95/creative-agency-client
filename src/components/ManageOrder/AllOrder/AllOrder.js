@@ -10,11 +10,11 @@ const AllOrder = ({ data }) => {
         <div>
             <table className="table table-hover bg-white">
                 <tbody>
-                    <tr>
+                    <tr >
                         <th>{name}</th>
                         <td>{email}</td>
                         <td>{serviceName}</td>
-                        <td>{details}</td>
+                        <td className="col-md-2">{details}</td>
                         <td>
                             <div class="dropdown">
                                 <button class="btn btn-transparent btn-outline-danger dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
