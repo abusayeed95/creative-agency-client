@@ -47,7 +47,7 @@ const MakeAdmin = () => {
                         <form class="form-inline" onSubmit={handleSubmit(onSubmit)}>
 
                             <div class="form-group mx-sm-3 mb-2">
-                                <input type="email" ref={register({ required: true })} name="email" class="form-control" id="" placeholder="jon@gamil.com" />
+                                <input type="email" name="email" ref={register({ required: true })} class="form-control" id="" placeholder="jon@gamil.com" />
                             </div>
                             <button type="submit" class="btn btn-success mb-2">Submit</button>
 

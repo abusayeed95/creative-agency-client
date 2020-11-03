@@ -20,11 +20,12 @@ const OrderForm = () => {
         data.preventDefault();
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('name', loggedInUser.name);
-        formData.append('email', loggedInUser.email);
+        formData.append('name', loggedInUser.name || info.name);
+        formData.append('email', loggedInUser.email || info.email);
         formData.append('serviceName', info.serviceName);
         formData.append('details', info.details);
         formData.append('price', info.price);
+        formData.append('status', 'pending');
 
         console.log('user data', data);
 

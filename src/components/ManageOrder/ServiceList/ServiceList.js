@@ -1,13 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import webDesign from '../../../images/icons/web-design.png';
 
 const ServiceList = () => {
 
+    const [order, setOrder] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
     const { name, email, photoURL } = loggedInUser;
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/specificOrder?email=${loggedInUser.email}`)
+            .then(res => res.json())
+            .then(data => setOrder(data))
+    }, [])
+
+    console.log('order history', order);
 
     return (
         <div className="row">
@@ -22,30 +30,28 @@ const ServiceList = () => {
                     <h3 className="mr-5">{name}</h3>
                 </div>
 
-                <div className="customFormStyle">
+                <div className="customFormStyle ">
 
                     <div className="bg-white p-5">
-                        <div class="dropdown">
-                            <button class="btn btn-transparent btn-outline-danger dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pending
-                                </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div className="">
-                            <img className="my-2" src={webDesign} alt="" style={{ height: '40px' }} />
-                            <h3>Web & Mobile design</h3>
-                            <p className="text-secondary">We craft stunning and amazing web UI, using a well drrafted UX to fit your product.</p>
+                        <div>
+                            {
+                                order.map(service => <div>
+
+                                    {/* <img src={`data:image/png;base64,${service.img.img}`} style={{ width: '10vw', height: '15vh' }} class="card-img-top" alt="..." /> */}
+                                    <div className="row">
+                                        <h5 class="card-title">{service.serviceName}</h5>
+                                        <button className="btn btn-outline-info ml-5">{service.status}</button>
+                                    </div>
+                                    <p class="card-text my-5">{service.details}</p>
+                                    <hr />
+                                </div>)
+                            }
                         </div>
 
                     </div>
-
                 </div>
 
-        </div>
+            </div>
         </div >
     );
 };
