@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AllServices.css';
-import { useSpring, animated } from 'react-spring'
 
 const AllServices = ({ allServices }) => {
 
     const { _id, image, title, description } = allServices;
+    console.log(allServices);
 
     return (
 
@@ -13,7 +13,11 @@ const AllServices = ({ allServices }) => {
             <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
                 <div className="card services-card my-5" style={{ height: 250 }}>
                     <div className="card-body">
-                        <img src={image} alt="No Image" style={{ height: '40px' }} />
+                        {/* {
+                            allServices.image ? <img style={{ height: '40px' }} src={`data:image/png;base64,${allServices.image.img}`} alt="" />
+                                :
+                                <img style={{ height: '40px' }} src={`https://fierce-cliffs-21804.herokuapp.com/getServices/${image.img}`} alt="" />
+                        } */}
                         <h3 className="text-dark">{title}</h3>
                         <p className="text-secondary">{description}</p>
                     </div>

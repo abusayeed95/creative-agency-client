@@ -33,7 +33,7 @@ const OrderHistory = () => {
             </div>
             <div>
                 {
-                    order.map(data => <AllOrder data={data}></AllOrder>)
+                    order.map(allOrders => <AllOrder allOrders={allOrders}></AllOrder>)
                 }
             </div>
 

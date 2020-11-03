@@ -17,8 +17,6 @@ const AddService = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
 
-    // const { register, handleSubmit, errors } = useForm();
-
     const onSubmit = (data) => {
         data.preventDefault();
 
@@ -31,8 +29,6 @@ const AddService = () => {
 
         fetch('http://localhost:5000/addService', {
             method: 'POST',
-            // headers: { 'content-type': 'application/json' },
-            // body: JSON.stringify(data)
             body: formData
         })
             .then(res => res.json())
@@ -70,10 +66,9 @@ const AddService = () => {
                             <div class="form-row">
                                 <div class="col">
                                     <label htmlFor="">Service Title</label>
-                                    <input onChange={handleBlur} type="text" name="title" className="form-control form-control-lg" placeholder="Enter title" />
+                                    <input onChange={handleBlur} type="text" name="title" className="form-control form-control-lg" maxlength="60" placeholder="Enter title (max 60 characters)" />
                                 </div>
                                 <div class="col">
-                                    {/* <input type="file" className="btn btn-success w-100 form-control-lg btnUploadFile"> Upload Image </input> */}
                                     <input onChange={handleFileChange} type="file" className="btn w-100 form-control-lg btnUploadFile form-control" /> Upload Image
                                 </div>
                             </div>
@@ -81,7 +76,7 @@ const AddService = () => {
 
                         <div className="form-group">
                             <label htmlFor="">Description</label>
-                            <textarea onChange={handleBlur} type="text" name="description" className="form-control" cols="30" rows="6" placeholder="Enter Description"></textarea>
+                            <textarea onChange={handleBlur} type="text" name="description" className="form-control" maxlength="120" cols="30" rows="6" placeholder="Enter Description (max 120 characters)"></textarea>
                         </div>
 
                         <div className="row d-flex justify-content-end">
