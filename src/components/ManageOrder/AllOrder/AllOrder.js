@@ -4,7 +4,10 @@ import 'react-dropdown/style.css';
 
 const AllOrder = ({ allOrders }) => {
 
+
     const { _id, name, email, serviceName, details } = allOrders;
+
+    const newStatus = allOrders.status;
 
     const [all, setAll] = useState([])
     const [status, setStatus] = useState('status')
@@ -62,7 +65,7 @@ const AllOrder = ({ allOrders }) => {
                         <td>{serviceName}</td>
                         <td className="col-md-2">{details}</td>
                         <td>
-                            <Dropdown options={options} onChange={(e) => { change(e, `${_id}`) }} value={defaultOption} placeholder="Select an option" />
+                            <Dropdown options={options} onChange={(e) => { change(e, `${_id}`) }} value={newStatus} /* placeholder="Select an option" */ />
                         </td>
                     </tr>
 
