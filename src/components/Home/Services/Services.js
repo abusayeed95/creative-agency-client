@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AllServices from '../AllServices/AllServices';
-import { useSpring, animated } from 'react-spring'
-
 
 const Services = () => {
 
@@ -17,7 +15,7 @@ const Services = () => {
         <div className="container text-center" style={{ marginTop: '150px', marginBottom: '50px' }}>
             <h1 className="mb-5">Provide awesome <span style={{ color: '#7AB259' }}>services</span></h1>
             
-            <div className="d-flex">
+            <div className="row">
                 {
                     services.map(allServices => <AllServices allServices={allServices} key={allServices._id}></AllServices>)
                 }
