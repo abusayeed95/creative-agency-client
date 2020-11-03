@@ -63,15 +63,15 @@ const OrderForm = () => {
                 <form onSubmit={onSubmit} className="customFormStyle" >
 
                     <div className="form-group">
-                        <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" placeholder="Your name / company’s name" />
+                        <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" placeholder="Your name / company’s name" required />
                     </div>
 
                     <div className="form-group">
-                        <input type="text" onBlur={handleBlur} name="email" className="form-control form-control-lg" placeholder="Your email address" />
+                        <input type="email" onBlur={handleBlur} name="email" className="form-control form-control-lg" placeholder="Your email address" required />
                     </div>
 
                     <div className="form-group">
-                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" placeholder="Graphic Design" />
+                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" placeholder="Graphic Design" required />
 
                     </div>
 
