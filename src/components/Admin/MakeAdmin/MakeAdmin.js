@@ -27,16 +27,29 @@ const MakeAdmin = () => {
     }
 
     return (
-        <div className="row">
+        <div className="container-fluid row">
 
+            <div className="col-md-2">
             <Sidebar></Sidebar>
+            </div>
 
 
-            <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
+            {/* <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}> */}
+            <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
 
-                <div className="pt-5 ml-5 d-flex justify-content-between">
+                {/* <div className="pt-5 ml-5 d-flex justify-content-between">
                     <h1>Add Admin</h1>
                     <h3 className="mr-5">{name}</h3>
+                </div> */}
+
+                <div className="d-flex align-items-center dashboardHeaderBg p-5">
+                    <h1>Add Admin</h1>
+                    <div class="ml-auto">
+                        <div className="row align-items-center">
+                            <h5>{name}</h5>
+                            <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="customFormStyle">

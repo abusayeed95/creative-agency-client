@@ -1,6 +1,5 @@
 .app {
-  font-family: 'Poppins', sans-serif;
-  
+  font-family: 'Montserrat', sans-serif;
 }
 
 .customFormStyle{
@@ -22,4 +21,9 @@
 .btnUploadFile{
   background: #DEFFED;
   color: #009444;
+}
+
+.dashboardHeaderBg{
+  background: #111430;
+  color: white;
 }

@@ -27,7 +27,7 @@ const OrderForm = () => {
         formData.append('price', info.price);
         formData.append('status', 'pending');
 
-        console.log('user data', data);
+        // console.log('user data', data);
 
         // insert order info to database
         fetch('http://localhost:5000/addOrder', {
@@ -48,17 +48,46 @@ const OrderForm = () => {
         setFile(newFile);
     }
 
+    const containerStyle = {
+        height: "100%",
+
+    }
+
     return (
-        <div className="row">
+        <div className="container-fluid row" style={containerStyle}>
 
+            <div className="col-md-2">
             <Sidebar></Sidebar>
+            </div>
 
-            <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}>
+            {/* <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}> */}
+            <div className="col-md-10" style={{ background: '#F4F7FC' }}>
 
-                <div className="pt-5 ml-5 d-flex justify-content-between">
+                {/* <div className="pt-5 ml-5 d-flex justify-content-between">
                     <h1 >Order</h1>
                     <h3 className="mr-5">{name}</h3>
+                </div> */}
+                {/* <div className="d-flex align-items-center p-4">
+                    <h1 style={{ fontSize: 50 }}>Order</h1>
+                    <div class="ml-auto">
+                        <div className="row align-items-center">
+                            <h5>Taib Islam Dipu</h5>
+                            <img src="" alt="" className="mx-3 rounded-circle" width="60" />
+                        </div>
+                    </div>
                 </div>
+                <hr /> */}
+
+                <div className="d-flex align-items-center dashboardHeaderBg p-5">
+                    <h1>Order</h1>
+                    <div class="ml-auto">
+                        <div className="row align-items-center">
+                            <h5>{name}</h5>
+                            <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
+                        </div>
+                    </div>
+                </div>
+
 
                 <form onSubmit={onSubmit} className="customFormStyle" >
 

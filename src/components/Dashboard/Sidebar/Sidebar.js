@@ -44,11 +44,10 @@ const Sidebar = () => {
     return (
 
 
-        <div className="sidebar d-flex flex-column justify-content-between" style={{ height: "100vh" }}>
+        <div className="sidebar d-flex flex-column justify-content-between " style={{ height: "100vh" }}>
 
             <ul className="list-unstyled">
                 <a className="navbar-brand m-4 mt-5 " href="/"><img src={logo} alt="" style={{ height: '50px' }} /></a>
-
 
                 <div className="my-5">
 
@@ -63,7 +62,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="postReview" className="sideBarlink">
+                        <Link to="/postReview" className="sideBarlink">
                             <FontAwesomeIcon icon={faCommentDots} /> <span>Review</span>
                         </Link>
                     </li>
@@ -72,17 +71,17 @@ const Sidebar = () => {
                 {isAdmin &&
                     <div>
                         <li>
-                            <Link to="admin" className="sideBarlink">
+                        <Link to="/admin" className="sideBarlink">
                                 <FontAwesomeIcon icon={faList} /> <span>Order List</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="addService" className="sideBarlink">
+                        <Link to="/addService" className="sideBarlink">
                                 <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="makeAdmin" className="sideBarlink">
+                        <Link to="/makeAdmin" className="sideBarlink">
                                 <FontAwesomeIcon icon={faUserPlus} /> <span>Make Admin</span>
                             </Link>
                         </li>

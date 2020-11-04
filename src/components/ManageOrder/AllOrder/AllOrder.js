@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import { UserContext } from '../../../App';
 
-const AllOrder = ({ allOrders }) => {
+const AllOrder = () => {
 
 
-    const { _id, name, email, serviceName, details } = allOrders;
+    // const { _id, name, email, serviceName, details } = allOrders;
+    // const newStatus = allOrders.status;
 
-    const newStatus = allOrders.status;
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { name, email, photoURL } = loggedInUser;
 
     const [all, setAll] = useState([])
     const [status, setStatus] = useState('status')
@@ -16,6 +19,7 @@ const AllOrder = ({ allOrders }) => {
         { value: 'Pending', label: 'Pending' },
         { value: 'On Going', label: 'On Going' },
         { value: 'Done', label: 'Done' },
+        { value: 'Cancel', label: 'Cancel' },
     ]
 
     useEffect(() => {
@@ -47,7 +51,21 @@ const AllOrder = ({ allOrders }) => {
 
     return (
 
-        <div>
+        <div className="container-fluid row">
+
+            <div style={{ height: '100vh', background: '#F4F7FC' }} className="p-5">
+
+                <div className="d-flex align-items-center dashboardHeaderBg p-5">
+                    <h1>All Order list</h1>
+                    <div class="ml-auto">
+                        <div className="row align-items-center">
+                            <h5>{name}</h5>
+                            <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
+                        </div>
+                    </div>
+                </div>
+
+
             <table className="table table-hover bg-white">
                 <thead>
                     <tr>
@@ -59,30 +77,31 @@ const AllOrder = ({ allOrders }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key={_id}>
+                        {/* <tr key={_id}>
                         <th>{name}</th>
                         <td>{email}</td>
                         <td>{serviceName}</td>
                         <td className="col-md-2">{details}</td>
                         <td>
-                            <Dropdown options={options} onChange={(e) => { change(e, `${_id}`) }} value={newStatus} /* placeholder="Select an option" */ />
+                            <Dropdown options={options} onChange={(e) => { change(e, `${_id}`) }} value={newStatus} />
                         </td>
-                    </tr>
+                    </tr> */}
 
-                    {/* {
+                        {
                         all.map(a =>
                             <tr key={a._id}>
                                 <th>{a.name}</th>
                                 <td>{a.email}</td>
                                 <td>{a.serviceName}</td>
-                                <td className="col-md-2">{a.details}</td>
+                                <td>{a.details}</td>
                                 <td>
                                     <Dropdown options={options} onChange={(e) => { change(e, `${a._id}`) }} value={defaultOption} placeholder="Select an option" />
                                 </td>
                             </tr>)
-                    } */}
+                        }
                 </tbody>
             </table>
+        </div>
         </div>
     );
 };
